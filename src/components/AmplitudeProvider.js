@@ -10,9 +10,9 @@ class AmplitudeProvider extends React.Component {
     if (isValidAmplitudeInstance(props.amplitudeInstance)) {
       if (props.apiKey) {
         if (props.deviceId) {
-          props.amplitudeInstance.init( props.apiKey, null, {deviceId: props.deviceId} );
+          props.amplitudeInstance.init(props.apiKey, null, { deviceId: props.deviceId });
         } else {
-          props.amplitudeInstance.init( props.apiKey );
+          props.amplitudeInstance.init(props.apiKey);
         }
       }
 
