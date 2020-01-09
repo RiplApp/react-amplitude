@@ -9,7 +9,11 @@ class AmplitudeProvider extends React.Component {
 
     if (isValidAmplitudeInstance(props.amplitudeInstance)) {
       if (props.apiKey) {
-        props.amplitudeInstance.init(props.apiKey);
+        if (props.deviceId) {
+          props.amplitudeInstance.init( props.apiKey, null, {deviceId: props.deviceId} );
+        } else {
+          props.amplitudeInstance.init( props.apiKey );
+        }
       }
 
       if (props.userId) {
@@ -50,6 +54,7 @@ AmplitudeProvider.propTypes = {
   amplitudeInstance: PropTypes.object.isRequired,
   apiKey: PropTypes.string,
   userId: PropTypes.string,
+  deviceId: PropTypes.string,
 };
 
 AmplitudeProvider.contextTypes = {
